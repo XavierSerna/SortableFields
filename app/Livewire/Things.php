@@ -9,17 +9,17 @@ use Iluminate\Support\Arr;
 class Things extends Component
 {
     public $things = [
-        ['id' => 1, 'title' => 'Textarea'],
-        ['id' => 2, 'title' => 'Checkbox'],
-        ['id' => 3, 'title' => 'Radio'],
-        ['id' => 4, 'title' => 'Dropdown'],
-        ['id' => 5, 'title' => 'Email'],
+        ['id' => 1, 'type' => 'email', 'title' => 'Email'],
+        ['id' => 2, 'type' => 'radio', 'title' => 'Radio'],
+        ['id' => 3, 'type' => 'checkbox', 'title' => 'Checkbox'],
+        ['id' => 4, 'type' => 'dropdown', 'title' => 'Dropdown'],
+        ['id' => 5, 'type' => 'textarea', 'title' => 'Textarea'],
     ];
-
-    public function reorder($orderIds)
+    
+    public function reorder($orderedIds)
     {
         $this->things = collect($orderedIds)->map(function ($id) {
-            return collect($this->things)->where('id', (int) $id)->first();
+            return collect($this->things)->where('id', (int) $id['value'])->first();
         })->toArray();
     }
 

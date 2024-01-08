@@ -24,7 +24,8 @@
         </div>
 
         @livewireScripts
-
+        <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v1.x.x/dist/livewire-sortable.js"></script>
+        <!--
         <script>
             let root = document.querySelector('[drag-root]')
 
@@ -69,5 +70,6 @@
                 })
             })
         </script>
+        -->
     </body>
 </html>
